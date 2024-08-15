@@ -70,11 +70,11 @@ class GTMC_HOA(nn.Module):
         # L(adv)
         GAN_loss /= self.num_views
         GAN_loss = torch.exp(-GAN_loss)
-        # L(sml)
+        # L(cml)
         comm_ML_loss /= self.num_views
-        # L(common)
+        # L(com)
         loss += (GAN_loss + comm_ML_loss) * self.args.common_feature_coefficient
-        # L(specific)
+        # L(spe)
         orthogonal_regularization = self.calculate_orthogonal_loss(view_features_dict, comm_feature)
         orthogonal_regularization /= self.num_views
         loss += orthogonal_regularization * self.args.specific_feature_coefficient
