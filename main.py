@@ -11,7 +11,7 @@ if __name__ == '__main__':
                         help='input batch size for training [default: 200]')
     parser.add_argument('--lambda-epochs', type=int, default=50, metavar='N',
                         help='gradually increase the value of lambda from 0 to 1')
-    parser.add_argument('--comm-feature-dim', type=int, default=64, metavar='N',
+    parser.add_argument('--comm-feature-dim', type=int, default=64, metavar='l',
                         help='number of common and specific feature dimensions [default: 64]')
     parser.add_argument('--delta', type=float, default=1.0, metavar='C',
                         help='loss coefficient for extracting common feature [default: 1.0]')
