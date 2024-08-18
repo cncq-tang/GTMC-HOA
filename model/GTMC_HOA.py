@@ -73,11 +73,11 @@ class GTMC_HOA(nn.Module):
         # L(cml)
         comm_ML_loss /= self.num_views
         # L(com)
-        loss += (GAN_loss + comm_ML_loss) * self.args.common_feature_coefficient
+        loss += (GAN_loss + comm_ML_loss) * self.args.delta
         # L(spe)
         orthogonal_regularization = self.calculate_orthogonal_loss(view_features_dict, comm_feature)
         orthogonal_regularization /= self.num_views
-        loss += orthogonal_regularization * self.args.specific_feature_coefficient
+        loss += orthogonal_regularization * self.args.eta
         # L(H1)
         RCML_views_loss /= self.num_views
         loss += RCML_views_loss
