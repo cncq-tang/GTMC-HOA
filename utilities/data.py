@@ -71,8 +71,7 @@ class MultiViewDataset(Dataset):
             records[c] = temp
         selects = np.random.choice(index, size=int(ratio * len(index)), replace=False)
         for i in selects:
-            # v = np.random.randint(self.num_views)
-            v = 0
+            v = np.random.randint(self.num_views)
             self.X[v][i] = records[(self.Y[i] + 1) % self.num_classes][v]
         pass
 
